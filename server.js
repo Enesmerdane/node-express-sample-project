@@ -34,14 +34,14 @@ app.use(bodyParser.json());
 const addUser = async (req, res) => {
     try {
         const { password, username } = req.body;
-        const db = client.db("Cluster0");
+        const db = client.db("node-express-sample-app");
+
         const collection = await db.collection("users");
 
         const newUser = { userName: "enes", password: "12312312" };
 
         const result = await collection.insertOne(newUser);
 
-        console.log(result);
         return result;
     } catch (error) {
         throw error;
