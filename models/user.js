@@ -34,7 +34,7 @@ const userSchema = mongoose.Schema({
         trim: true,
     },
     age: {
-        type: number,
+        type: Number,
         validate(value) {
             if (value < 0) {
                 throw new Error("Age cannot be less then 0");
@@ -56,3 +56,7 @@ const userSchema = mongoose.Schema({
         default: false,
     },
 });
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = { User };
