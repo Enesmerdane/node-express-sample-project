@@ -36,9 +36,9 @@ const addUser = async (req, res) => {
         const { password, username } = req.body;
         const db = client.db("node-express-sample-app");
 
-        const collection = await db.collection("users");
+        const collection = db.collection("users");
 
-        const newUser = { userName: "enes", password: "12312312" };
+        const newUser = { userName: username, password: password };
 
         const result = await collection.insertOne(newUser);
 
